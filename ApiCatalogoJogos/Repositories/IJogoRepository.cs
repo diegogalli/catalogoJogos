@@ -14,5 +14,6 @@ namespace ApiCatalogoJogos.Repositories
         Task Inserir(Jogo jogo);
         Task Atualizar(Jogo jogo);
         Task Remover(Guid id);
+        void Dispose();
     }
 }
