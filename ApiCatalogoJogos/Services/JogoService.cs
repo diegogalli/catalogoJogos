@@ -1,4 +1,6 @@
-﻿using ApiCatalogoJogos.InputModel;
+﻿using ApiCatalogoJogos.Entities;
+using ApiCatalogoJogos.Exceptions;
+using ApiCatalogoJogos.InputModel;
 using ApiCatalogoJogos.Repositories;
 using ApiCatalogoJogos.ViewModel;
 using System;
@@ -27,8 +29,7 @@ namespace ApiCatalogoJogos.Services
                 Nome = jogo.Nome,
                 Produtora = jogo.Produtora,
                 Preco = jogo.Preco
-            })
-                                .ToList();
+            }).ToList();
         }
 
         public async Task<JogoViewModel> Obter(Guid id)
@@ -111,7 +112,7 @@ namespace ApiCatalogoJogos.Services
 
         public void Dispose()
         {
-            _jogoRepository?.Dispode();
+            _jogoRepository?.Dispose();
         }
     }
 }
