@@ -119,7 +119,7 @@ namespace ApiCatalogoJogos.Repositories
 
             await sqlConnection.OpenAsync();
             SqlCommand sqlCommand = new SqlCommand(comando, sqlConnection);
-            sqlCommand.ExecuteNonQuery();
+            await sqlCommand.ExecuteNonQueryAsync();
             await sqlConnection.CloseAsync();
         }
         public void Dispose()
