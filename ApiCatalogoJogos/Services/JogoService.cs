@@ -1,14 +1,14 @@
-﻿using ApiCatalogoJogos.Entities;
-using ApiCatalogoJogos.Exceptions;
-using ApiCatalogoJogos.InputModel;
-using ApiCatalogoJogos.Repositories;
-using ApiCatalogoJogos.ViewModel;
+﻿using ExemploApiCatalogoJogos.Entities;
+using ExemploApiCatalogoJogos.Exceptions;
+using ExemploApiCatalogoJogos.InputModel;
+using ExemploApiCatalogoJogos.Repositories;
+using ExemploApiCatalogoJogos.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiCatalogoJogos.Services
+namespace ExemploApiCatalogoJogos.Services
 {
     public class JogoService : IJogoService
     {
@@ -29,7 +29,8 @@ namespace ApiCatalogoJogos.Services
                 Nome = jogo.Nome,
                 Produtora = jogo.Produtora,
                 Preco = jogo.Preco
-            }).ToList();
+            })
+                               .ToList();
         }
 
         public async Task<JogoViewModel> Obter(Guid id)
@@ -73,7 +74,7 @@ namespace ApiCatalogoJogos.Services
                 Preco = jogo.Preco
             };
         }
-        
+
         public async Task Atualizar(Guid id, JogoInputModel jogo)
         {
             var entidadeJogo = await _jogoRepository.Obter(id);
